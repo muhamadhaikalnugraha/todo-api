@@ -15,10 +15,9 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('checklist', ChecklistController::class)
         ->only(['index', 'store', 'destroy']);
 
-    // checklist items
-    Route::get('checklist/{checklistId}/items', [ChecklistItemController::class, 'index']);
-    Route::post('checklist/{checklistId}/items', [ChecklistItemController::class, 'store']);
-    Route::put('checklist/{checklistId}/items/{itemId}/status', [ChecklistItemController::class, 'updateStatus']);
-    Route::put('/checklist/{checklistId}/items/{itemId}/rename', [ChecklistItemController::class, 'rename']);
-    Route::delete('checklist/{checklistId}/items/{itemId}', [ChecklistItemController::class, 'destroy']);
+    Route::get('checklist/{checklistId}/item', [ChecklistItemController::class, 'index']);
+    Route::post('checklist/{checklistId}/item', [ChecklistItemController::class, 'store']);
+    Route::put('checklist/{checklistId}/item/{itemId}/status', [ChecklistItemController::class, 'updateStatus']);
+    Route::put('/checklist/{checklistId}/item/{itemId}/rename', [ChecklistItemController::class, 'rename']);
+    Route::delete('checklist/{checklistId}/item/{itemId}', [ChecklistItemController::class, 'destroy']);
 });
